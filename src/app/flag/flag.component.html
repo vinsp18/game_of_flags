@@ -1,0 +1,68 @@
+<div class="container mt-4" >
+   <div class="container-fluid p-1" style="background-color:rgba(212, 207, 207, 0.959)">
+    <div class="h5" *ngIf="!mode">
+    
+            <countdown [config]="{leftTime:60}"
+            (finished)="finish()"
+            >Time Remaining: $!s! </countdown>
+
+    </div>
+        <div class="row ">
+                <div class="col-6 float-left">
+               
+                       <p class="h3 m-3">{{points}}</p>
+                   
+                </div>
+            
+       
+           <div class="col-6">
+                <div class="float-right">
+                        <button class="btn btn-danger m-3" (click)="restart()">Restart</button>
+
+                    </div>
+           </div>
+       </div>
+     <div class="row justify-content-center ml-5">
+         <div class="col-auto ">
+                <img src="../../assets/pic/flag.png" *ngIf="mode" style="height:7em;width:7em;" >
+            </div>
+                <div class="col-auto">
+                        <h3 class="display-4" *ngIf="mode">Guess the flag!!</h3>
+                </div>
+                <div class="col-3"><img src="../../assets/pic/flag.png"  *ngIf="mode" style="height:7em;width:7em;" >
+                </div>
+         </div>
+     
+     
+    <div class="row d-flex justify-content-center">
+       <div class="col d-flex justify-content-center" > <span style="height: 20em; width:25em " class="flag-icon flag-icon-{{flagfinal |lowercase}}"></span></div>
+    </div>
+    <div class="row">
+        <div class="col d-flex justify-content-center">
+           <p class="h4" *ngIf="!mode">Which country has this flag?</p>
+        </div>
+        
+    </div>
+
+   <div class="row">
+       <div class="col d-flex justify-content-center m-3 ">
+           
+        <button class="m-3 d-flex flex-column btn btn-dark" type="submit" (click)="score(j)"  *ngFor="let i of randomNationName , let j = index" >{{i.name}}</button>
+     
+    
+       </div>
+   </div>
+        
+        
+
+  
+ <div class="row">
+    <div class="col d-flex justify-content-center">
+      
+        <button  class="btn btn-success mb-3" type="submit" (click)='next()' *ngIf="mode">Play</button>
+      
+  </div>
+ </div>
+ </div>
+</div>
+
